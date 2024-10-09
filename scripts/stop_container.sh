@@ -1,6 +1,5 @@
 #!/bin/bash
-set -e
 
 # Stop the running container (if any) and remove the first container
-containerID=$(docker ps -q | head -n 1)
+containerID='docker ps | awk -F " " '{Print $1}'
 docker rm -f $containerID
